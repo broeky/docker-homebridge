@@ -1,16 +1,14 @@
-version: '2'
+vversion: '2'
 services:
   homebridge:
     image: oznu/homebridge:latest
-    container_name: homebridge
-    restart: unless-stopped
-    ports: 
-      - "8581:8581"
+    restart: always
     network_mode: host
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8581
+      - TZ=London/Europe
     volumes:
       - ./volumes/homebridge:/homebridge
-    logging:
-      driver: json-file
-      options:
-        max-size: "10mb"
-        max-file: "1"
