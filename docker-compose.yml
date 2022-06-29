@@ -13,6 +13,4 @@ services:
       - TZ=London/Europe
     volumes:
       - ./volumes/homebridge:/homebridge
-volumes:
-  homebridge:
-    external: true
+
