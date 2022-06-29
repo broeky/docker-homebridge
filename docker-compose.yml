@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   homebridge:
     image: oznu/homebridge:latest
@@ -13,3 +13,6 @@ services:
       - TZ=London/Europe
     volumes:
       - ./volumes/homebridge:/homebridge
+volumes:
+  homebridge:
+    external: true
